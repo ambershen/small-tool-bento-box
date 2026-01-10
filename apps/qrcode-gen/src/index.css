@@ -1,0 +1,182 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Strict Color Palette */
+  --c-dark: #0A0A0C;
+  --c-light: #F2EDE7;
+  --c-purple: #82667F;
+  --c-blue: #2C3E5C;
+  --c-red: #D14A61;
+}
+
+/* Base Styles */
+body {
+  font-family: 'Courier New', Courier, monospace;
+  background-color: var(--c-light);
+  color: var(--c-dark);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Theme: Dark Mode Overrides */
+[data-theme="dark"] body {
+  background-color: var(--c-dark);
+  color: var(--c-light);
+}
+
+@layer components {
+  /* Brutalist Components - Refined/Elegant New Brutalism */
+  
+  .brutal-border {
+    border: 2px solid var(--c-dark);
+  }
+  
+  [data-theme="dark"] .brutal-border {
+    border-color: var(--c-light);
+  }
+
+  /* Hard Shadows - Thinner/Sharper */
+  .brutal-shadow {
+    box-shadow: 2px 2px 0 0 var(--c-dark);
+  }
+  
+  [data-theme="dark"] .brutal-shadow {
+    box-shadow: 2px 2px 0 0 var(--c-light);
+  }
+
+  .brutal-shadow-hover:hover {
+    box-shadow: 4px 4px 0 0 var(--c-dark);
+    transform: translate(-2px, -2px);
+  }
+
+  [data-theme="dark"] .brutal-shadow-hover:hover {
+    box-shadow: 4px 4px 0 0 var(--c-light);
+  }
+
+  .brutal-shadow-active:active {
+    box-shadow: 0 0 0 0 var(--c-dark);
+    transform: translate(2px, 2px);
+  }
+
+  [data-theme="dark"] .brutal-shadow-active:active {
+    box-shadow: 0 0 0 0 var(--c-light);
+  }
+
+  /* Inputs */
+  .brutal-input {
+    @apply w-full p-3 font-mono text-lg outline-none transition-all;
+    background-color: transparent;
+    border: 2px solid var(--c-dark);
+    border-radius: 0;
+  }
+  
+  .brutal-input:focus {
+    box-shadow: 2px 2px 0 0 var(--c-blue);
+    border-color: var(--c-blue);
+  }
+  
+  [data-theme="dark"] .brutal-input {
+    border-color: var(--c-light);
+    color: var(--c-light);
+  }
+
+  [data-theme="dark"] .brutal-input:focus {
+    box-shadow: 2px 2px 0 0 var(--c-purple);
+    border-color: var(--c-purple);
+  }
+
+  /* Buttons */
+  .brutal-btn {
+    @apply font-medium py-3 px-6 text-lg uppercase tracking-wider transition-all duration-150 flex items-center justify-center gap-2;
+    background-color: var(--c-light);
+    color: var(--c-dark);
+    border: 2px solid var(--c-dark);
+    box-shadow: 3px 3px 0 0 var(--c-dark);
+    border-radius: 0;
+  }
+
+  .brutal-btn:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 4px 4px 0 0 var(--c-dark);
+  }
+
+  .brutal-btn:active {
+    transform: translate(2px, 2px);
+    box-shadow: 0 0 0 0 var(--c-dark);
+  }
+
+  .brutal-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: 2px 2px 0 0 var(--c-dark);
+  }
+
+  /* Dark Mode Buttons */
+  [data-theme="dark"] .brutal-btn {
+    background-color: var(--c-dark);
+    color: var(--c-light);
+    border-color: var(--c-light);
+    box-shadow: 3px 3px 0 0 var(--c-light);
+  }
+
+  [data-theme="dark"] .brutal-btn:hover {
+    box-shadow: 4px 4px 0 0 var(--c-light);
+  }
+  
+  [data-theme="dark"] .brutal-btn:active {
+    box-shadow: 0 0 0 0 var(--c-light);
+  }
+  
+  [data-theme="dark"] .brutal-btn:disabled {
+     box-shadow: 2px 2px 0 0 var(--c-light);
+  }
+
+  /* Card Container */
+  .brutal-card {
+    background-color: var(--c-light);
+    border: 2px solid var(--c-dark);
+    box-shadow: 6px 6px 0 0 var(--c-dark);
+  }
+
+  [data-theme="dark"] .brutal-card {
+    background-color: var(--c-dark);
+    border-color: var(--c-light);
+    box-shadow: 6px 6px 0 0 var(--c-light);
+  }
+}
+
+/* Custom Range Input */
+input[type=range] {
+  -webkit-appearance: none;
+  background: transparent;
+}
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 20px;
+  width: 20px;
+  background: var(--c-dark);
+  border: 2px solid var(--c-light);
+  cursor: pointer;
+  margin-top: -8px; 
+  box-shadow: 2px 2px 0 0 var(--c-light);
+  border-radius: 0;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 4px;
+  cursor: pointer;
+  background: var(--c-dark);
+  border: 1px solid var(--c-dark);
+}
+
+[data-theme="dark"] input[type=range]::-webkit-slider-thumb {
+  background: var(--c-light);
+  border: 2px solid var(--c-dark);
+  box-shadow: 2px 2px 0 0 var(--c-dark);
+}
+[data-theme="dark"] input[type=range]::-webkit-slider-runnable-track {
+  background: var(--c-light);
+  border: 1px solid var(--c-light);
+}

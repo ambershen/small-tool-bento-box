@@ -1,0 +1,7 @@
+flask
+flask-cors
+werkzeug
+pypdf
+pdfplumber
+pandas
+tabulate

@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  @apply bg-brand-white text-brand-black transition-colors duration-300;
+}
+
+.dark body {
+  @apply bg-brand-black text-brand-white;
+}
+
+/* Custom Scrollbar for Brutalist feel */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-brand-white border-l-2 border-brand-black transition-colors duration-300;
+}
+
+.dark ::-webkit-scrollbar-track {
+  @apply bg-brand-black border-l-2 border-brand-white;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-brand-black border-2 border-brand-white transition-colors duration-300;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  @apply bg-brand-white border-2 border-brand-black;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-brand-coral;
+}
+
+/* Global focus styles */
+:focus-visible {
+  @apply outline-none ring-2 ring-brand-black ring-offset-2 ring-offset-brand-white;
+}
+
+.dark :focus-visible {
+  @apply ring-brand-white ring-offset-brand-black;
+}
+
+@layer utilities {
+  .animate-marquee {
+    animation: marquee 20s linear infinite;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

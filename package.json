@@ -1,0 +1,16 @@
+{
+  "name": "temp-app",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm run -w @smalltool/hub dev",
+    "build": "npm run -ws build",
+    "lint": "npm run -ws lint",
+    "preview": "npm run -w @smalltool/hub preview"
+  }
+}
