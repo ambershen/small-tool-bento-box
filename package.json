@@ -12,5 +12,9 @@
     "build": "npm run -ws build",
     "lint": "npm run -ws lint",
     "preview": "npm run -w @smalltool/hub preview"
+  },
+  "optionalDependencies": {
+    "@rollup/rollup-linux-x64-gnu": "^4.0.0",
+    "@rollup/rollup-linux-x64-musl": "^4.0.0"
   }
 }

@@ -1,0 +1,9 @@
+{
+  "outputDirectory": "apps/hub/dist",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}

@@ -1,4 +1,3 @@
-import React from 'react';
 
 export const BentoLogo = ({ className = "" }: { className?: string }) => {
   return (
