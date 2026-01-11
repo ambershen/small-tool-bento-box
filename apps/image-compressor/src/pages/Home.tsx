@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Upload, Image, Zap, Settings } from 'lucide-react';
 import { toast } from 'sonner';
 import '../styles/geometric-animations.css';
+import { ThemeToggle } from '../components/ThemeToggle';
 
 interface ProcessingOptions {
   type: 'quality' | 'pixel';
@@ -135,41 +136,44 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white relative overflow-hidden">
+    <div className="min-h-screen bg-brand-white dark:bg-brand-black text-brand-black dark:text-brand-white relative overflow-hidden font-sans selection:bg-brand-black selection:text-brand-white dark:selection:bg-brand-white dark:selection:text-brand-black transition-colors duration-300">
       {/* Animated Background */}
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden opacity-10 pointer-events-none">
         <div className="geometric-bg">
-          <div className="floating-triangle triangle-1"></div>
-          <div className="floating-triangle triangle-2"></div>
-          <div className="floating-triangle triangle-3"></div>
-          <div className="floating-circle circle-1"></div>
-          <div className="floating-circle circle-2"></div>
-          <div className="floating-square square-1"></div>
-          <div className="floating-square square-2"></div>
-          <div className="floating-hexagon hexagon-1"></div>
-          <div className="floating-diamond diamond-1"></div>
-          <div className="floating-diamond diamond-2"></div>
+          <div className="floating-triangle triangle-1 border-brand-black dark:border-brand-white"></div>
+          <div className="floating-triangle triangle-2 border-brand-black dark:border-brand-white"></div>
+          <div className="floating-triangle triangle-3 border-brand-black dark:border-brand-white"></div>
+          <div className="floating-circle circle-1 border-brand-black dark:border-brand-white"></div>
+          <div className="floating-circle circle-2 border-brand-black dark:border-brand-white"></div>
+          <div className="floating-square square-1 border-brand-black dark:border-brand-white"></div>
+          <div className="floating-square square-2 border-brand-black dark:border-brand-white"></div>
+          <div className="floating-hexagon hexagon-1 border-brand-black dark:border-brand-white"></div>
+          <div className="floating-diamond diamond-1 border-brand-black dark:border-brand-white"></div>
+          <div className="floating-diamond diamond-2 border-brand-black dark:border-brand-white"></div>
         </div>
       </div>
 
       {/* Content */}
       <main className="relative z-10 container mx-auto px-4 py-12 max-w-4xl">
         {/* Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-[#32F08C] to-[#00D4FF] bg-clip-text text-transparent">
-            Image Processor
+        <div className="relative text-center mb-12">
+          <div className="absolute top-0 right-0">
+            <ThemeToggle />
+          </div>
+          <h1 className="text-5xl font-black uppercase tracking-tighter mb-4 text-brand-black dark:text-brand-white">
+            Image Processor<span className="text-brand-coral">.</span>
           </h1>
-          <p className="text-xl text-gray-300">
+          <p className="font-serif text-xl text-brand-black/70 dark:text-brand-white/70">
             Advanced image compression and optimization
           </p>
         </div>
 
         {/* Hero Section */}
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold mb-4">
+        <div className="text-center mb-12 border-b-[1px] border-brand-black dark:border-brand-white pb-12">
+          <h2 className="text-4xl font-bold uppercase tracking-tight mb-4">
             Professional Image Processing
           </h2>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+          <p className="font-serif text-xl text-brand-black/60 dark:text-brand-white/60 max-w-2xl mx-auto">
             Reduce file sizes and optimize your images with advanced compression algorithms. 
             Choose between quality compression or pixel reduction for perfect results.
           </p>
@@ -177,21 +181,21 @@ export default function Home() {
 
         {/* Processing Type Selection */}
         <div className="mb-8">
-          <h3 className="text-lg font-semibold mb-4">Choose Processing Type</h3>
+          <h3 className="font-mono text-xs font-bold uppercase tracking-widest mb-4 opacity-60">Choose Processing Type</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <button
               onClick={() => handleProcessingTypeChange('quality')}
-              className={`p-6 rounded-xl border-2 transition-all ${
+              className={`p-6 text-left border-[1px] transition-all duration-300 ${
                 processingType === 'quality'
-                  ? 'border-[#32F08C] bg-[#32F08C]/10'
-                  : 'border-gray-700 hover:border-gray-600'
+                  ? 'border-brand-black bg-brand-black text-brand-white dark:border-brand-white dark:bg-brand-white dark:text-brand-black'
+                  : 'border-brand-black/20 hover:border-brand-black dark:border-brand-white/20 dark:hover:border-brand-white'
               }`}
             >
               <div className="flex items-center space-x-3 mb-3">
-                <Zap className="w-6 h-6 text-[#32F08C]" />
-                <h4 className="text-lg font-semibold">Quality Compression</h4>
+                <Zap className={`w-6 h-6 ${processingType === 'quality' ? 'text-brand-coral' : 'text-brand-black dark:text-brand-white'}`} />
+                <h4 className="text-lg font-bold uppercase tracking-tight">Quality Compression</h4>
               </div>
-              <p className="text-gray-400 text-left">
+              <p className={`font-serif text-sm ${processingType === 'quality' ? 'opacity-80' : 'opacity-60'}`}>
                 Reduce file size while maintaining image dimensions. 
                 Perfect for web optimization and storage savings.
               </p>
@@ -199,17 +203,17 @@ export default function Home() {
 
             <button
               onClick={() => handleProcessingTypeChange('pixel')}
-              className={`p-6 rounded-xl border-2 transition-all ${
+              className={`p-6 text-left border-[1px] transition-all duration-300 ${
                 processingType === 'pixel'
-                  ? 'border-[#32F08C] bg-[#32F08C]/10'
-                  : 'border-gray-700 hover:border-gray-600'
+                  ? 'border-brand-black bg-brand-black text-brand-white dark:border-brand-white dark:bg-brand-white dark:text-brand-black'
+                  : 'border-brand-black/20 hover:border-brand-black dark:border-brand-white/20 dark:hover:border-brand-white'
               }`}
             >
               <div className="flex items-center space-x-3 mb-3">
-                <Settings className="w-6 h-6 text-[#32F08C]" />
-                <h4 className="text-lg font-semibold">Pixel Reduction</h4>
+                <Settings className={`w-6 h-6 ${processingType === 'pixel' ? 'text-brand-coral' : 'text-brand-black dark:text-brand-white'}`} />
+                <h4 className="text-lg font-bold uppercase tracking-tight">Pixel Reduction</h4>
               </div>
-              <p className="text-gray-400 text-left">
+              <p className={`font-serif text-sm ${processingType === 'pixel' ? 'opacity-80' : 'opacity-60'}`}>
                 Resize images by reducing pixel count. 
                 Ideal for thumbnails and bandwidth optimization.
               </p>
@@ -218,13 +222,13 @@ export default function Home() {
         </div>
 
         {/* Processing Options */}
-        <div className="mb-8 p-6 bg-gray-900/50 rounded-xl border border-gray-800">
-          <h3 className="text-lg font-semibold mb-4">Processing Options</h3>
+        <div className="mb-8 p-6 bg-white dark:bg-zinc-900 border-[1px] border-brand-black dark:border-brand-white transition-colors duration-300">
+          <h3 className="font-mono text-xs font-bold uppercase tracking-widest mb-6 opacity-60">Processing Options</h3>
           
           {processingType === 'quality' && (
-            <div className="space-y-4">
+            <div className="space-y-6">
               <div>
-                <label className="block text-sm font-medium mb-2">
+                <label className="block text-sm font-bold uppercase tracking-tight mb-4">
                   Quality Level: {options.quality}%
                 </label>
                 <input
@@ -233,9 +237,9 @@ export default function Home() {
                   max="100"
                   value={options.quality || 85}
                   onChange={(e) => setOptions({ ...options, quality: parseInt(e.target.value) })}
-                  className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer slider"
+                  className="w-full h-1 bg-brand-black/10 dark:bg-brand-white/10 rounded-full appearance-none cursor-pointer accent-brand-black dark:accent-brand-white"
                 />
-                <div className="flex justify-between text-xs text-gray-500 mt-1">
+                <div className="flex justify-between font-mono text-[10px] uppercase tracking-widest mt-4 opacity-40">
                   <span>Lower quality (smaller file)</span>
                   <span>Higher quality (larger file)</span>
                 </div>
@@ -244,13 +248,13 @@ export default function Home() {
           )}
 
           {processingType === 'pixel' && (
-            <div className="space-y-4">
+            <div className="space-y-8">
               <div>
-                <label className="block text-sm font-medium mb-2">
+                <label className="block text-sm font-bold uppercase tracking-tight mb-4">
                   Resize Method
                 </label>
-                <div className="space-y-2">
-                  <label className="flex items-center">
+                <div className="space-y-3">
+                  <label className="flex items-center cursor-pointer group">
                     <input
                       type="radio"
                       name="resizeMethod"
@@ -261,11 +265,11 @@ export default function Home() {
                         maxWidth: undefined, 
                         maxHeight: undefined 
                       })}
-                      className="mr-2"
+                      className="w-4 h-4 border-brand-black accent-brand-black dark:border-brand-white dark:accent-brand-white mr-3"
                     />
-                    <span>Percentage reduction</span>
+                    <span className="font-serif text-lg group-hover:text-brand-coral transition-colors">Percentage reduction</span>
                   </label>
-                  <label className="flex items-center">
+                  <label className="flex items-center cursor-pointer group">
                     <input
                       type="radio"
                       name="resizeMethod"
@@ -276,16 +280,16 @@ export default function Home() {
                         maxWidth: 1920, 
                         maxHeight: undefined 
                       })}
-                      className="mr-2"
+                      className="w-4 h-4 border-brand-black accent-brand-black dark:border-brand-white dark:accent-brand-white mr-3"
                     />
-                    <span>Maximum dimensions</span>
+                    <span className="font-serif text-lg group-hover:text-brand-coral transition-colors">Maximum dimensions</span>
                   </label>
                 </div>
               </div>
 
               {options.percentage && (
                 <div>
-                  <label className="block text-sm font-medium mb-2">
+                  <label className="block text-sm font-bold uppercase tracking-tight mb-4">
                     Reduction Percentage: {options.percentage}%
                   </label>
                   <input
@@ -294,15 +298,15 @@ export default function Home() {
                     max="90"
                     value={options.percentage}
                     onChange={(e) => setOptions({ ...options, percentage: parseInt(e.target.value) })}
-                    className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer slider"
+                    className="w-full h-1 bg-brand-black/10 dark:bg-brand-white/10 rounded-full appearance-none cursor-pointer accent-brand-black dark:accent-brand-white"
                   />
                 </div>
               )}
 
               {!options.percentage && (
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-2 gap-8">
                   <div>
-                    <label className="block text-sm font-medium mb-2">Max Width (px)</label>
+                    <label className="block font-mono text-[10px] uppercase tracking-widest mb-2 opacity-60">Max Width (px)</label>
                     <input
                       type="number"
                       value={options.maxWidth || ''}
@@ -310,12 +314,12 @@ export default function Home() {
                         ...options, 
                         maxWidth: e.target.value ? parseInt(e.target.value) : undefined 
                       })}
-                      className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:border-[#32F08C] focus:outline-none"
+                      className="w-full px-4 py-3 bg-brand-white dark:bg-zinc-800 border-[1px] border-brand-black dark:border-brand-white focus:bg-white dark:focus:bg-black focus:outline-none font-mono"
                       placeholder="e.g., 1920"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-2">Max Height (px)</label>
+                    <label className="block font-mono text-[10px] uppercase tracking-widest mb-2 opacity-60">Max Height (px)</label>
                     <input
                       type="number"
                       value={options.maxHeight || ''}
@@ -323,7 +327,7 @@ export default function Home() {
                         ...options, 
                         maxHeight: e.target.value ? parseInt(e.target.value) : undefined 
                       })}
-                      className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:border-[#32F08C] focus:outline-none"
+                      className="w-full px-4 py-3 bg-brand-white dark:bg-zinc-800 border-[1px] border-brand-black dark:border-brand-white focus:bg-white dark:focus:bg-black focus:outline-none font-mono"
                       placeholder="e.g., 1080"
                     />
                   </div>
@@ -331,7 +335,7 @@ export default function Home() {
               )}
 
               <div>
-                <label className="block text-sm font-medium mb-2">
+                <label className="block text-sm font-bold uppercase tracking-tight mb-4">
                   Output Quality: {options.quality}%
                 </label>
                 <input
@@ -340,19 +344,19 @@ export default function Home() {
                   max="100"
                   value={options.quality || 85}
                   onChange={(e) => setOptions({ ...options, quality: parseInt(e.target.value) })}
-                  className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer slider"
+                  className="w-full h-1 bg-brand-black/10 dark:bg-brand-white/10 rounded-full appearance-none cursor-pointer accent-brand-black dark:accent-brand-white"
                 />
               </div>
 
               <div>
-                <label className="flex items-center">
+                <label className="flex items-center cursor-pointer group">
                   <input
                     type="checkbox"
                     checked={options.noAspect || false}
                     onChange={(e) => setOptions({ ...options, noAspect: e.target.checked })}
-                    className="mr-2"
+                    className="w-4 h-4 border-brand-black accent-brand-black dark:border-brand-white dark:accent-brand-white mr-3"
                   />
-                  <span className="text-sm">Don't maintain aspect ratio</span>
+                  <span className="font-serif text-lg group-hover:text-brand-coral transition-colors">Don't maintain aspect ratio</span>
                 </label>
               </div>
             </div>
@@ -361,16 +365,17 @@ export default function Home() {
 
         {/* File Upload Area */}
         <div
-          className={`border-2 border-dashed rounded-xl p-12 text-center transition-all ${
+          className={`border-[2px] border-dashed p-12 text-center transition-all duration-300 cursor-pointer ${
             isDragging
-              ? 'border-[#32F08C] bg-[#32F08C]/10'
+              ? 'border-brand-coral bg-brand-coral/5'
               : selectedFile
-              ? 'border-[#32F08C] bg-[#32F08C]/5'
-              : 'border-gray-700 hover:border-gray-600'
+              ? 'border-brand-black bg-white dark:border-brand-white dark:bg-zinc-900'
+              : 'border-brand-black/20 hover:border-brand-black dark:border-brand-white/20 dark:hover:border-brand-white'
           }`}
           onDragOver={handleDragOver}
           onDragLeave={handleDragLeave}
           onDrop={handleDrop}
+          onClick={() => !selectedFile && fileInputRef.current?.click()}
         >
           <input
             ref={fileInputRef}
@@ -381,39 +386,39 @@ export default function Home() {
           />
 
           {selectedFile ? (
-            <div className="space-y-4">
-              <div className="w-16 h-16 bg-[#32F08C] rounded-full flex items-center justify-center mx-auto">
-                <Image className="w-8 h-8 text-black" />
+            <div className="space-y-6">
+              <div className="w-16 h-16 bg-brand-black dark:bg-brand-white rounded-full flex items-center justify-center mx-auto">
+                <Image className="w-8 h-8 text-brand-white dark:text-brand-black" />
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-[#32F08C]">File Selected</h3>
-                <p className="text-gray-400">{selectedFile.name}</p>
-                <p className="text-sm text-gray-500">
+                <h3 className="text-xl font-bold uppercase tracking-tight text-brand-black dark:text-brand-white">File Selected</h3>
+                <p className="font-mono text-xs opacity-60 mt-1">{selectedFile.name}</p>
+                <p className="font-mono text-[10px] text-brand-coral mt-2 font-bold uppercase tracking-widest">
                   {(selectedFile.size / (1024 * 1024)).toFixed(2)} MB
                 </p>
               </div>
               <button
-                onClick={() => fileInputRef.current?.click()}
-                className="text-[#32F08C] hover:text-[#28d474] transition-colors"
+                onClick={(e) => { e.stopPropagation(); fileInputRef.current?.click(); }}
+                className="font-mono text-xs font-bold uppercase tracking-widest border-b-[1px] border-brand-black dark:border-brand-white pb-0.5 hover:text-brand-coral hover:border-brand-coral transition-colors"
               >
                 Choose different file
               </button>
             </div>
           ) : (
-            <div className="space-y-4">
-              <div className="w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center mx-auto">
-                <Upload className="w-8 h-8 text-gray-400" />
+            <div className="space-y-6">
+              <div className="w-16 h-16 bg-brand-black/5 dark:bg-brand-white/5 rounded-full flex items-center justify-center mx-auto">
+                <Upload className="w-8 h-8 text-brand-black dark:text-brand-white" />
               </div>
               <div>
-                <h3 className="text-lg font-semibold">Drop your image here</h3>
-                <p className="text-gray-400">or click to browse files</p>
-                <p className="text-sm text-gray-500 mt-2">
+                <h3 className="text-xl font-bold uppercase tracking-tight">Drop your image here</h3>
+                <p className="font-serif text-lg opacity-60">or click to browse files</p>
+                <p className="font-mono text-[10px] uppercase tracking-widest opacity-40 mt-4">
                   Supports JPG/JPEG files up to 50MB
                 </p>
               </div>
               <button
                 onClick={() => fileInputRef.current?.click()}
-                className="bg-[#32F08C] text-black px-6 py-2 rounded-lg font-medium hover:bg-[#28d474] transition-colors"
+                className="bg-brand-black text-brand-white dark:bg-brand-white dark:text-brand-black px-8 py-3 rounded-none font-bold uppercase tracking-widest hover:bg-brand-coral hover:text-brand-white dark:hover:bg-brand-coral dark:hover:text-brand-white transition-colors"
               >
                 Choose File
               </button>
@@ -423,11 +428,11 @@ export default function Home() {
 
         {/* Start Processing Button */}
         {selectedFile && (
-          <div className="mt-8 text-center">
+          <div className="mt-12 text-center">
             <button
               onClick={handleStartProcessing}
               disabled={isUploading}
-              className="bg-[#32F08C] text-black px-8 py-3 rounded-lg font-semibold text-lg hover:bg-[#28d474] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="bg-brand-black text-brand-white dark:bg-brand-white dark:text-brand-black px-12 py-4 rounded-none font-bold uppercase tracking-widest text-lg hover:bg-brand-coral hover:text-brand-white dark:hover:bg-brand-coral dark:hover:text-brand-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isUploading ? 'Starting...' : 'Start Processing'}
             </button>

@@ -1,12 +1,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Github } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 interface BrutalistCardProps {
   title: string;
   description: string;
   icon: React.ReactNode;
   url: string;
+  route?: string;
   githubUrl?: string;
   className?: string;
   color?: string;
@@ -17,9 +19,21 @@ export function BrutalistCard({
   description,
   icon,
   url,
+  route,
   githubUrl,
   className = '',
 }: BrutalistCardProps) {
+  const navigate = useNavigate();
+
+  const handleLaunch = (e?: React.MouseEvent) => {
+    if (e) e.stopPropagation();
+    if (route) {
+      navigate(route);
+    } else {
+      window.open(url, '_blank');
+    }
+  };
+
   return (
     <motion.div
       initial="rest"
@@ -34,7 +48,7 @@ export function BrutalistCard({
         hover:bg-[#0A0A0C]/[0.02]
         ${className}
       `}
-      onClick={() => window.open(url, '_blank')}
+      onClick={() => handleLaunch()}
     >
       {/* Number/Icon Header */}
       <div className="flex justify-between items-start mb-6">
@@ -65,10 +79,7 @@ export function BrutalistCard({
       {/* Footer/Links */}
       <div className="mt-8 flex items-center gap-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
         <button 
-          onClick={(e) => {
-            e.stopPropagation();
-            window.open(url, '_blank');
-          }}
+          onClick={handleLaunch}
           className="font-mono text-xs font-bold uppercase tracking-widest border-b border-[#0A0A0C] pb-0.5 hover:text-[#D14A61] hover:border-[#D14A61] transition-colors"
         >
           Launch Tool

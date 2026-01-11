@@ -4,8 +4,9 @@ export const tools = [
   {
     title: 'Image Processor',
     description:
-      'Modern image compression and optimization with pixel-perfect resizing. Features real-time comparison and privacy-first local processing.',
+      'High-fidelity compression meets brutal efficiency. Shrink your footprint without sacrificing a single pixel. Local, fast, and uncompromising.',
     icon: <ImageIcon size={24} />,
+    route: '/imageprocessor',
     url: 'https://traeimage-compressorepwd.vercel.app/',
     previewUrl: 'https://traeimage-compressorepwd.vercel.app/',
     githubUrl: 'https://github.com/ambershen/image-processor',
@@ -15,8 +16,9 @@ export const tools = [
   {
     title: 'QR Code Gen',
     description:
-      'Instant, customizable QR code generation. Support for URLs, text, and wifi credentials with custom colors and logo embedding.',
+      'Turning raw data into modular geometry. Instant generation for URLs and credentials, stripped of the noise.',
     icon: <QrCode size={24} />,
+    route: '/qrcode',
     url: 'https://traeqrcodeka3i.vercel.app/',
     previewUrl: 'https://traeqrcodeka3i.vercel.app/',
     githubUrl: 'https://github.com/ambershen/qrcode-gen',
@@ -26,8 +28,9 @@ export const tools = [
   {
     title: 'PDF Expert',
     description:
-      'Secure PDF tools for merging, converting, and organizing documents. 100% client-side processing for maximum privacy.',
+      'The definitive architecture for your documents. Merge and organize with clinical precision, entirely on your terms.',
     icon: <FileText size={24} />,
+    route: '/pdfexpert',
     url: 'https://traepdf-expertoute.vercel.app/',
     previewUrl: 'https://traepdf-expertoute.vercel.app/',
     githubUrl: 'https://github.com/ambershen/pdf-expert',
