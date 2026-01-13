@@ -42,43 +42,59 @@ export function Home() {
         </motion.div>
       </header>
 
-      {/* Collection Grid */}
-      <main id="collection" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-[#0A0A0C] border-b-[1px] border-[#0A0A0C]">
-        {tools.map((tool, index) => (
-          <motion.div
-            key={tool.title}
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: index * 0.1 }}
-            className={tool.className?.includes('col-span-2') ? 'md:col-span-2' : ''}
-          >
-            <BrutalistCard {...tool} className="h-full border-t-0" />
-          </motion.div>
-        ))}
-
-        {/* Coming Soon / Manifesto Block */}
-        <div className="min-h-[400px] p-8 flex flex-col justify-between bg-[#0A0A0C] text-[#F2EDE7]">
-           <div className="font-mono text-xs uppercase tracking-widest border-b border-[#F2EDE7]/20 pb-4 mb-8">
-             Manifesto
-           </div>
-           
-           <div className="space-y-6">
-             <h3 className="font-display text-4xl font-bold uppercase leading-none">
-               Utility is<br/>Beauty.
-             </h3>
-             <p className="font-serif text-lg opacity-80 leading-relaxed">
-               Tools should be as sharp as the problems they solve. No fluff, just the core utility, packed and ready to serve.
-             </p>
-           </div>
-           
-           <div className="pt-12">
-             <span className="inline-block px-3 py-1 border border-[#F2EDE7] rounded-full text-xs uppercase tracking-widest">
-               More Coming Soon
-             </span>
-           </div>
+      <div className="relative">
+        {/* Left Margin Label */}
+        <div className="hidden md:flex absolute left-0 top-0 bottom-0 w-6 items-center justify-center pointer-events-none">
+          <span className="transform -rotate-90 text-[9px] font-mono font-bold tracking-[0.2em] text-[#0A0A0C] opacity-30 whitespace-nowrap">
+            COLLECTION / INDEX
+          </span>
         </div>
-      </main>
+
+        {/* Collection Grid */}
+        <main id="collection" className="mx-6 md:mx-6 border-x border-b border-[#0A0A0C] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-[#0A0A0C]">
+          {tools.map((tool, index) => (
+            <motion.div
+              key={tool.title}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className={tool.className?.includes('col-span-2') ? 'md:col-span-2' : ''}
+            >
+              <BrutalistCard {...tool} className="h-full border-t-0" />
+            </motion.div>
+          ))}
+
+          {/* Coming Soon / Manifesto Block */}
+          <div className="min-h-[400px] p-8 flex flex-col justify-between bg-[#0A0A0C] text-[#F2EDE7]">
+             <div className="font-mono text-xs uppercase tracking-widest border-b border-[#F2EDE7]/20 pb-4 mb-8">
+               Manifesto
+             </div>
+             
+             <div className="space-y-6">
+               <h3 className="font-display text-4xl font-bold uppercase leading-none">
+                 Utility is<br/>Beauty.
+               </h3>
+               <p className="font-serif text-lg opacity-80 leading-relaxed">
+                 Tools should be as sharp as the problems they solve. Core utilities packed and ready to serve.
+               </p>
+             </div>
+             
+             <div className="pt-12">
+               <span className="inline-block px-3 py-1 border border-[#F2EDE7] rounded-full text-xs uppercase tracking-widest">
+                 More Coming Soon
+               </span>
+             </div>
+          </div>
+        </main>
+
+        {/* Right Margin Label */}
+        <div className="hidden md:flex absolute right-0 top-0 bottom-0 w-6 items-center justify-center pointer-events-none">
+          <span className="transform rotate-90 text-[9px] font-mono font-bold tracking-[0.2em] text-[#0A0A0C] opacity-30 whitespace-nowrap">
+            EST. {currentYear}
+          </span>
+        </div>
+      </div>
 
       {/* CSS for outline text effect */}
       <style>{`

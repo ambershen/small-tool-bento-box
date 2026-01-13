@@ -4,7 +4,7 @@ export const tools = [
   {
     title: 'Image Processor',
     description:
-      'High-fidelity compression meets brutal efficiency. Shrink your footprint without sacrificing a single pixel. Local, fast, and uncompromising.',
+      'Compress images without losing quality. Fast, local, and built for efficiency.',
     icon: <ImageIcon size={24} />,
     route: '/imageprocessor',
     url: 'https://traeimage-compressorepwd.vercel.app/',
@@ -16,7 +16,7 @@ export const tools = [
   {
     title: 'QR Code Gen',
     description:
-      'Turning raw data into modular geometry. Instant generation for URLs and credentials, stripped of the noise.',
+      'Create clean QR codes for any link or text. Add brand customization if you like. ',
     icon: <QrCode size={24} />,
     route: '/qrcode',
     url: 'https://traeqrcodeka3i.vercel.app/',
@@ -28,7 +28,7 @@ export const tools = [
   {
     title: 'PDF Expert',
     description:
-      'The definitive architecture for your documents. Merge and organize with clinical precision, entirely on your terms.',
+      'Your workspace for PDFs. Merge, convert with markdown or images, and fill forms easily.',
     icon: <FileText size={24} />,
     route: '/pdfexpert',
     url: 'https://traepdf-expertoute.vercel.app/',
