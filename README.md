@@ -1,49 +1,59 @@
-# SmallTool Bento Box (Monorepo)
+# SMALL TOOL BENTO BOX.
+### VOL. 1.0 — CURATED UTILITY.
 
-A single repo containing the bento-box hub plus three tools (QR Code Gen, PDF Expert, Image Compressor).
+Utility is beauty. We've stripped away the digital noise to serve you the core of web productivity. This is a monorepo of raw, uncompromising tools packed into a brutalist bento grid.
 
-## Structure
+---
 
-- `.trae/skills` — Trae skills imported from sub-apps
-- `apps/hub` — the landing page hub (bento grid)
-- `apps/qrcode-gen` — QR code generator app
-- `apps/pdf-expert` — PDF utilities app (includes `api/` for Vercel functions)
-- `apps/image-compressor` — image compression app (includes `api/` for Vercel functions)
-- `packages/ui` — shared UI components consumed by the hub
+## THE MENU.
+A balanced collection of digital nutrients.
 
-## Local Development
+- **THE BASE (RICE)** 🍚
+  - `apps/hub` — The container. A brutalist landing page that holds everything together.
+  - `packages/ui` — The shared infrastructure. Shared components for consistent plating.
+
+- **THE CORE (MAIN DISHES)** 🍱
+  - `apps/image-compressor` — High-fidelity shrinkage. Sharp.js under the hood.
+  - `apps/pdf-expert` — Clinical document surgery. Merge, fill, and convert.
+  - `apps/qrcode-gen` — Modular geometry. Raw data turned into scannable art.
+
+---
+
+## KITCHEN SETUP.
+How to prep the ingredients.
 
 ```bash
+# Install everything at once
 npm install
+
+# Fire up the whole kitchen
 npm run dev
-```
 
-Run a specific app:
-
-```bash
+# Prep a specific dish
 npm run dev -w @smalltool/qrcode-gen
 npm run dev -w @smalltool/pdf-expert
 npm run dev -w @smalltool/image-compressor
 ```
 
-## Checks
+---
 
-```bash
-npm run build
-npm run lint
-```
+## PLATING.
+Serving it to the world.
 
-## Deploying on Vercel (One Project Per App)
+Each tool is a standalone dish. Deploy them as separate Vercel projects:
 
-Create a separate Vercel project for each app and set:
+1. **Root Directory**: Point to the specific `apps/` folder.
+2. **Framework**: Vite.
+3. **Build**: `npm run build`.
+4. **Output**: `dist`.
 
-- Root Directory:
-  - Hub: `apps/hub`
-  - QR Code Gen: `apps/qrcode-gen`
-  - PDF Expert: `apps/pdf-expert`
-  - Image Compressor: `apps/image-compressor`
-- Framework Preset: Vite
-- Build Command: `npm run build`
-- Output Directory: `dist`
+---
 
-`apps/hub` depends on `packages/ui` via a local file reference, so keep the repo layout intact in Vercel.
+## MANIFESTO.
+1. **NO SLOP.** If it doesn't do work, it doesn't exist.
+2. **BRUTALIST.** Function dictates form.
+3. **RAW AESTHETIC.** Beauty served in its most brutal form.
+
+© 2026 — NO RIGHTS RESERVED. JUST ART.
+
+Build with TRAE SOLO.

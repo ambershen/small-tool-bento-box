@@ -101,7 +101,7 @@ export default function FillForm() {
     <div className="flex flex-col h-full">
         <div className="border-b-2 border-brand-black p-8 md:p-12 bg-brand-white transition-colors duration-300 dark:border-brand-white dark:bg-brand-black">
             <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-4 dark:text-brand-white">Fill Form</h2>
-            <p className="text-xl font-mono text-brand-black/60 max-w-2xl dark:text-brand-white/60">Complete PDF forms online.</p>
+            <p className="text-xl font-mono text-brand-black/60 max-w-2xl dark:text-brand-white/60">Clinical precision for document completion. Pure function, zero friction.</p>
         </div>
 
         <div className="flex-1 p-8 md:p-12 bg-brand-white transition-colors duration-300 dark:bg-brand-black">

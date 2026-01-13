@@ -68,7 +68,7 @@ export function Home() {
                Utility is<br/>Beauty.
              </h3>
              <p className="font-serif text-lg opacity-80 leading-relaxed">
-               Tools can be both functional and beautiful. Carefully crafted for you.
+               Tools should be as sharp as the problems they solve. No fluff, just the core utility, packed and ready to serve.
              </p>
            </div>
            
