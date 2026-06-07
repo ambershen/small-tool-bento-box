@@ -16,6 +16,7 @@ A balanced collection of digital nutrients.
   - `apps/image-compressor` — High-fidelity shrinkage. Sharp.js under the hood.
   - `apps/pdf-expert` — Clinical document surgery. Merge, fill, and convert.
   - `apps/qrcode-gen` — Modular geometry. Raw data turned into scannable art.
+  - `apps/rednote-cover` — Image-first Rednote cover studio with draggable HTML typography and PNG export.
 
 ---
 
@@ -33,6 +34,7 @@ npm run dev
 npm run dev -w @smalltool/qrcode-gen
 npm run dev -w @smalltool/pdf-expert
 npm run dev -w @smalltool/image-compressor
+npm run dev -w @smalltool/rednote-cover
 ```
 
 ---
